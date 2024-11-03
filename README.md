@@ -1,6 +1,6 @@
 <img width="1280" alt="readme-banner" src="https://github.com/user-attachments/assets/35332e92-44cb-425b-9dff-27bcf1023c6c">
 
-#VAAZHA 🎯
+#Project Name: VAAZHA 🎯
 
 
 ## Basic Details
@@ -26,12 +26,11 @@ Identity reassurance
 For Software:
 - HTML,CSS,JavaScript
 
-For Hardware:
-
 ### Implementation
 For Software:
+
 # Run
-[commands]
+The websitelink is given: (https://adarshkb.github.io/UseLess_Project/)
 
 ### Project Documentation
 For Software:
