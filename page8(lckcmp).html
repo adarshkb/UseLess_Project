@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luck Comparison</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: radial-gradient(circle, #89CFF0, #8360c3, #2ebf91);
+            color: #333;
+            overflow: hidden;
+        }
+        .container {
+            background: #ffffffd9;
+            padding: 80px;
+            border-radius: 15px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 390px;
+            position: relative;
+            overflow: hidden;
+            margin-left: -10%;
+        }
+
+
+        .floating-dots {
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 8s infinite alternate ease-in-out;
+        }
+        
+        .floating-dots:nth-child(2) {
+            top: auto;
+            bottom: -100px;
+            left: -100px;
+            width: 200px;
+            height: 200px;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            from { transform: translateY(0); }
+            to { transform: translateY(-20px); }
+        }
+
+        h1 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            transition: 0.3s ease;
+        }
+
+        input:focus, button:hover {
+            outline: none;
+            border-color: #2ebf91;
+            box-shadow: 0px 0px 10px rgba(46, 191, 145, 0.5);
+        }
+
+        button {
+            background: linear-gradient(to right, #ff6b6b, #f06595);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #fa709a, #fee140);
+            transform: scale(1.05);
+        }
+
+        
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        #result.animate {
+            animation: pop 0.5s ease-in-out;
+        }
+
+        @keyframes pop {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+    
+        .icon {
+            font-size: 50px;
+            color: #ffe135;
+            animation: bounce 1.2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        p{
+            margin-top: 50%;
+            display: inline;
+            margin-left: -20%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="floating-dots"></div>
+<div class="floating-dots"></div>
+
+<div class="container">
+    <h1>VAAZHA Comparison !!</h1>
+    <input type="text" id="name1" placeholder="Enter first name" required>
+    <input type="text" id="name2" placeholder="Enter second name" required>
+    <button onclick="compareLuck()">Check Who's the biggest VAAZHA!</button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+    function compareLuck() {
+        const name1 = document.getElementById("name1").value.trim();
+        const name2 = document.getElementById("name2").value.trim();
+
+        if (!name1 || !name2) {
+            alert("Please enter both names.");
+            return;
+        }
+
+        
+        const vaazha1 = Math.floor(Math.random() * 100) + 1;
+        const vaazha2 = Math.floor(Math.random() * 100) + 1;
+
+        
+        let resultMessage = "";
+        if (vaazha1 > vaazha2) {
+            resultMessage = `<div class="icon">🍀</div><p>${name1} is more VAAZHA than ${name2} with a score of ${vaazha1}%!</p>`;
+        } else if (vaazha2 > vaazha1) {
+            resultMessage = `<div class="icon">🍀</div><p>${name2} is more VAAZHA than ${name1} with a score of ${vaazha2}%!</p>`;
+        } else {
+            resultMessage = `<div class="icon">✨</div><p>${name1} and ${name2} are equally VAAZHA with a score of ${vaazha1}%!</p>`;
+        }
+
+        
+        const resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = resultMessage;
+        resultDiv.classList.add("animate");
+    }
+</script>
+
+<p>© Useless Aadhmis 🤩</p>
+
+</body>
+</html>

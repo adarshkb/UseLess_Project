@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Date Generator</title>
+    <link rel="stylesheet" href="styles3.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Future Date Generator</h2>
+    <p class="intro-text">Enter your name and date of birth to know when your വാഴ കൊലക്കും !!</p>
+    
+    <label for="name">Enter Your Name:</label>
+    <input type="text" id="name" placeholder="Your Name" required>
+    
+    <label for="dob">Enter Your Date of Birth:</label>
+    <input type="date" id="dob" required>
+    
+    <button onclick="generateFutureDate()">Check</button>
+    
+    <div id="result"></div>
+</div>
+
+<!-- <footer class="footer1"> -->
+    <p>© Useless Aadhmis</p>
+<!-- </footer> -->
+
+<script>
+    function generateFutureDate() {
+        const name = document.getElementById("name").value;
+        const dob = document.getElementById("dob").value;
+
+        if (name === "" || dob === "") {
+            alert("Please enter both your name and date of birth.");
+            return;
+        }
+        const inputString = name + dob;
+        let hash = 0;
+        for (let i = 0; i < inputString.length; i++) {
+            hash = ((hash << 5) - hash) + inputString.charCodeAt(i);
+            hash = hash & hash; 
+        }
+
+        const currentDate = new Date();
+        const futureDate = new Date(currentDate);
+        
+        const daysToAdd = Math.abs(hash % 365); 
+        futureDate.setDate(currentDate.getDate() + daysToAdd);
+
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById("result").textContent = "തൻ്റെ വാഴ കൊലക്കുന്ന ദിവസം : " + futureDate.toLocaleDateString(undefined, options);
+    }
+</script>
+
+</body>
+</html>

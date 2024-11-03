@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 Blocks with Redirects</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+
+    <div class="header">
+        <h1>Welcome to the Vazha World!</h1>
+        <p>All you need to know about being a VAAZHA!!</p>
+    </div>
+
+    <div class="container">
+        <a href="page3.html" class="block">
+            <img src="calculator-removebg-preview.png" alt="Calculator" class="block-icon">
+            Your Vazha Calculator
+        </a>
+        <a href="page6(urtyp).html" class="block">
+            <img src="vaazha3-removebg-preview.png" alt="Type" class="block-icon">
+            Which type of vazha are you?
+        </a>
+        <a href="page5(vazhapartner).html" class="block">
+            <img src="vaazha1.jpg" alt="Partner" class="block-icon">
+            To know Your Vazha Partner
+        </a>
+        <a href="page4(vazhakoladate).html" class="block">
+            <img src="hourglass-removebg-preview.png" alt="Kola" class="block-icon">
+            എന്ന് ഈ വാഴ കൊലക്കും ...???
+        </a>
+        <a href="page8(lckcmp).html" class="block">
+            <img src="aavesham-malayalam.gif">
+            Compare Yourself with others
+        </a>
+    </div>
+<br><br><br>
+    <div class="containere">
+       <a href="page7(exit).html"><button class="buttone">Exit Now</button></a> 
+        <p id="message"></p>
+    </div>
+
+    <div class="footer">
+        <p>Explore, Discover, and Enjoy! 🌿</p>
+    </div>
+
+   
+    
+    <script>
+        let clickCount = 0;
+    
+        document.getElementById('exitButton').addEventListener('click', function() {
+            clickCount++;
+            if (clickCount < 3) {
+                document.getElementById('message').textContent = `You need to click ${3 - clickCount} more time(s) to exit.`;
+            } else {
+                window.location.href = "page7(exit)"; 
+            }
+        });
+    </script>
+
+</body>
+</html>

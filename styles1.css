@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #ff0000, #ff8700, #ffd300, #00ff00, #0099ff, #6633ff);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 90%;
+    width: 400px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.input-section {
+    margin-bottom: 2rem;
+}
+
+input {
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+button {
+    background: linear-gradient(45deg, #ff0000, #ff8700);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.result-section {
+    display: none;
+}
+
+.percentage {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 1rem 0;
+    background: linear-gradient(45deg, #ff0000, #ff8700, #ffd300, #00ff00, #0099ff, #6633ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientText 5s ease infinite;
+}
+
+@keyframes gradientText {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.user-info {
+    margin-bottom: 1.5rem;
+    color: #444;
+}
+    .footer1 {
+        position: absolute;
+
+        bottom: 50px;
+        text-align: center;
+        width: 100%;
+        color: #FFFFFF;
+        font-size: 0.9em;
+        animation: fadeIn 2s ease;
+        font-style: italic;
+    }

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name-Based Result Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #4b6cb7, #182848);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #ffffff;
+            flex-direction: column;
+        }
+
+       
+        .container {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 320px;
+            padding: 40px;
+            position: relative;
+            color: #333333;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        
+        .icon {
+            font-size: 40px;
+            color: #4b6cb7;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #182848;
+            margin-bottom: 10px;
+            font-size: 26px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-top: 20px;
+        }
+
+       
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            font-size: 16px;
+            border-radius: 30px;
+            border: 1px solid #ddd;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        input:focus {
+            border-color: #4b6cb7;
+            box-shadow: 0 0 5px rgba(75, 108, 183, 0.4);
+        }
+
+        button {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+            border: none;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #4b6cb7, #182848);
+            transform: translateY(-3px);
+        }
+
+        
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            opacity: 0;
+            animation: slideIn 0.5s forwards;
+        }
+
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        
+        .header, .footer {
+            font-size: 18px;
+            color: #dbe2ef;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+        }
+
+        .header {
+            top: 0;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .footer {
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="header">
+    <h3>🌟 Welcome to VAAZHA FINDER..! 🌟</h3>
+</div>
+
+<div class="container">
+    
+    <div class="icon">
+        <i class="fas fa-seedling"></i>
+    </div>
+    <h2>Find Your Result</h2>
+    <label for="name">Enter Your Name:</label>
+    <input type="text" id="name" placeholder="Your Name" required>
+    
+    <button onclick="generateResult()">Get Your Result</button>
+    
+    <div id="result"></div>
+</div>
+
+
+<div class="footer">
+    <p>@Useless Aadhmis</p>
+</div>
+
+<script>
+    function generateResult() {
+        const name = document.getElementById("name").value.trim();
+
+        if (name === "") {
+            alert("Please enter your name.");
+            return;
+        }
+
+        const results = [
+            "നേന്ത്ര!!!",
+            "മുന്തൻ!!!",
+            "കാഞ്ഞി വാഴ!!!",
+            "കൊഴിക്കുപഴം!!.","പൂവൻ!!",
+            "റാസവാഴ!!.","നൈയപ്പോവൻ!!",
+            "കുളക്ക പ്പഴം!!.","you are a special breed.... its not invented yet !!!"
+        ];
+
+        let hash = 0;
+        for (let i = 0; i < name.length; i++) {
+            hash = name.charCodeAt(i) + ((hash << 5) - hash);
+            hash = hash & hash; 
+        }
+        
+        const index = Math.abs(hash) % results.length;
+        const result = results[index];
+        
+        const resultDiv = document.getElementById("result");
+        resultDiv.textContent = "താൻ ഒരു " + result + " ആണ് 🤣";
+        
+    
+        resultDiv.style.opacity = "0";
+        resultDiv.style.animation = "none";
+        setTimeout(() => {
+            resultDiv.style.animation = "slideIn 0.5s forwards";
+        }, 0);
+    }
+</script>
+
+</body>
+</html>
